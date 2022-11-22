@@ -7,10 +7,10 @@
     <ul class="header-button-right">
       <li>Next</li>
     </ul>
-    <img src="./assets/logo.png" class="logo" />
+    <!-- <img src="./assets/logo.png" class="logo" /> -->
  </div>
 
-  <VuegramContainer />
+  <VuegramContainer :Posts="postdata"/>
   <div class="footer">
     <ul class="footer-button-plus">
       <input type="file" id="file" class="inputfile" />
@@ -22,13 +22,14 @@
 
 <script>
 import VuegramContainer from './components/VuegramContainer.vue';
+import postdata from './components/VuegramContainer.vue';
 
 
 export default {
   name: 'App',
   data(){
     return {
-      
+      postdata : postdata,
     }
   },
   components: {

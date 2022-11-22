@@ -12,6 +12,9 @@ import VuegramPost from './VuegramPost.vue';
 export default {
   components : {
     VuegramPost,
+  },
+  props : {
+    Posts : Array
   }
 }
 </script>
