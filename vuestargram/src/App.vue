@@ -26,6 +26,11 @@ import VuegramContainer from './components/VuegramContainer.vue';
 
 export default {
   name: 'App',
+  data(){
+    return {
+      
+    }
+  },
   components: {
     VuegramContainer,
   }
