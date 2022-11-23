@@ -7,10 +7,9 @@
     <ul class="header-button-right">
       <li>Next</li>
     </ul>
-    <!-- <img src="./assets/logo.png" class="logo" /> -->
  </div>
 
-  <VuegramContainer :Posts="postdata"/>
+  <VuegramContainer :게시물="게시물"/>
   <div class="footer">
     <ul class="footer-button-plus">
       <input type="file" id="file" class="inputfile" />
@@ -22,14 +21,14 @@
 
 <script>
 import VuegramContainer from './components/VuegramContainer.vue';
-import postdata from './components/VuegramContainer.vue';
+import postdata from './assets/postdata';
 
 
 export default {
   name: 'App',
   data(){
     return {
-      postdata : postdata,
+      게시물 : postdata,
     }
   },
   components: {
