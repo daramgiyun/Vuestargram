@@ -10,6 +10,8 @@
  </div>
 
   <VuegramContainer :게시물="게시물"/>
+  <button @click="more">더보기</button>
+
   <div class="footer">
     <ul class="footer-button-plus">
       <input type="file" id="file" class="inputfile" />
@@ -22,7 +24,7 @@
 <script>
 import VuegramContainer from './components/VuegramContainer.vue';
 import postdata from './assets/postdata';
-
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -33,6 +35,21 @@ export default {
   },
   components: {
     VuegramContainer,
+  },
+  methods : {
+    more(){
+
+      axios.post('URL', {name : 'kim'})
+      .then()
+      .catch(()=>{
+      })
+
+      axios.get('https://codingapple1.github.io/vue/more0.json')
+      .then(result=>{
+        console.log(result.data); 
+        this.게시물.push(result.data);
+      })
+    }
   }
 }
 </script>
