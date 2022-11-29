@@ -31,6 +31,7 @@ export default {
   data(){
     return {
       게시물 : postdata,
+      더보기 : 0,
     }
   },
   components: {
@@ -42,10 +43,11 @@ export default {
       .then()
       .catch(()=>{
       })
-      axios.get('https://codingapple1.github.io/vue/more0.json')
+      axios.get(`https://codingapple1.github.io/vue/more${this.더보기}.json`)
       .then(result=>{
-        console.log(result.data); 
+        // console.log(result.data); 
         this.게시물.push(result.data);
+        this.더보기++;
       })
     }
   }
