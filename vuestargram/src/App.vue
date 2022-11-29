@@ -38,12 +38,10 @@ export default {
   },
   methods : {
     more(){
-
       axios.post('URL', {name : 'kim'})
       .then()
       .catch(()=>{
       })
-
       axios.get('https://codingapple1.github.io/vue/more0.json')
       .then(result=>{
         console.log(result.data); 
