@@ -9,7 +9,8 @@
     </ul>
  </div>
 
-  <VuegramContainer :게시물="게시물"/>
+
+  <VuegramContainer :게시물="게시물" :tabs="tabs"/>
   <button @click="more">더보기</button>
 
   <div class="footer">
@@ -19,6 +20,16 @@
     </ul>
   </div>
  </div>
+ 
+ <!-- 탭 구현하기
+ <div v-if="step == 0">내용0</div>
+ <div v-if="step == 1">내용1</div>
+ <div v-if="step == 2">내용2</div>
+ <button @click="step = 0">버튼0</button>
+ <button @click="step = 1">버튼1</button>
+ <button @click="step = 2">버튼2</button>
+  -->
+
 </template>
 
 <script>
@@ -30,6 +41,8 @@ export default {
   name: 'App',
   data(){
     return {
+      // step : 0, 탭 구현하기
+      tabs : 0,
       게시물 : postdata,
       더보기 : 0,
     }
