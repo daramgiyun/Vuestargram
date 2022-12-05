@@ -8,11 +8,9 @@
   <div v-if="tabs == 1">
   <div class="upload-image" :style="`background-image:url(${이미지})`"></div>
   <div class="filters">
-    <div class="filter-1"></div>
-    <div class="filter-1"></div>
-    <div class="filter-1"></div>
-    <div class="filter-1"></div>
-    <div class="filter-1"></div>
+    <FilterBox v-for="필터 in 필터들" :key="필터" :이미지="이미지" :필터="필터">
+      
+    </FilterBox>
   </div>
   </div>
 
@@ -20,7 +18,7 @@
   <div v-if="tabs == 2">
    <div class="upload-image" :style="`background-image:url(${이미지})`"></div>
    <div class="write">
-     <textarea class="write-box">write!</textarea>
+     <textarea @input="$emit('write', $event.target.value)" class="write-box">write!</textarea>
    </div>
   </div>
 </div>
@@ -29,10 +27,19 @@
 
 <script>
 import VuegramPost from './VuegramPost.vue';
+import FilterBox from './FilterBox.vue';
 
 export default {
+  data(){
+    return {
+      필터들 : [ "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson", 
+"inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua", 
+"reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"]
+    }
+  },
   components : {
     VuegramPost,
+    FilterBox,
   },
   props : {
     게시물 : Array,

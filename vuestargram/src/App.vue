@@ -5,13 +5,14 @@
       <li>Cancel</li>
     </ul>
     <ul class="header-button-right">
-      <li @click="tabs++">Next</li>
+      <li v-if="tabs == 1" @click="tabs++">Next</li>
+      <li v-if="tabs == 2" @click="publish()">발행</li>
     </ul>
     <!-- <img src="./assets/logo.png" class="logo" /> -->
  </div>
 
 
-  <VuegramContainer :게시물="게시물" :tabs="tabs" :이미지="이미지"/>
+  <VuegramContainer @write="작성한글 = $event" :게시물="게시물" :tabs="tabs" :이미지="이미지"/>
   <button @click="more">더보기</button>
 
   <div class="footer">
@@ -46,13 +47,28 @@ export default {
       tabs : 0,
       게시물 : postdata,
       더보기 : 0,
-      이미지 : ''
+      이미지 : '',
+      작성한글 : '',
     }
   },
   components: {
     VuegramContainer,
   },
   methods : {
+    publish(){
+      var 내게시물 = {
+        name: "Kim Hyun",
+        userImage: "https://placeimg.com/100/100/arch",
+        postImage: this.이미지,
+        likes: 36,
+        date: "May 15",
+        liked: false,
+        content: this.작성한글,
+        filter: "perpetua"
+      };
+      this.게시물.unshift(내게시물);
+      this.step = 0;
+    },
     more(){
       axios.post('URL', {name : 'kim'})
       .then()
