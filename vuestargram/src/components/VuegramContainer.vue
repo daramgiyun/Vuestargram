@@ -6,7 +6,7 @@
 
     <!-- 필터선택페이지 -->
   <div v-if="tabs == 1">
-  <div class="upload-image"></div>
+  <div class="upload-image" :style="`background-image:url(${이미지})`"></div>
   <div class="filters">
     <div class="filter-1"></div>
     <div class="filter-1"></div>
@@ -18,7 +18,7 @@
 
 <!-- 글작성페이지 -->
   <div v-if="tabs == 2">
-   <div class="upload-image"></div>
+   <div class="upload-image" :style="`background-image:url(${이미지})`"></div>
    <div class="write">
      <textarea class="write-box">write!</textarea>
    </div>
@@ -37,6 +37,7 @@ export default {
   props : {
     게시물 : Array,
     tabs : Number,
+    이미지 : String,
   }
 }
 </script>
