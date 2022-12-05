@@ -5,17 +5,18 @@
       <li>Cancel</li>
     </ul>
     <ul class="header-button-right">
-      <li>Next</li>
+      <li @click="tabs++">Next</li>
     </ul>
+    <!-- <img src="./assets/logo.png" class="logo" /> -->
  </div>
 
 
-  <VuegramContainer :게시물="게시물" :tabs="tabs"/>
+  <VuegramContainer :게시물="게시물" :tabs="tabs" :이미지="이미지"/>
   <button @click="more">더보기</button>
 
   <div class="footer">
     <ul class="footer-button-plus">
-      <input type="file" id="file" class="inputfile" />
+      <input @change="upload" type="file" id="file" class="inputfile" />
       <label for="file" class="input-plus">+</label>
     </ul>
   </div>
@@ -45,6 +46,7 @@ export default {
       tabs : 0,
       게시물 : postdata,
       더보기 : 0,
+      이미지 : ''
     }
   },
   components: {
@@ -62,6 +64,14 @@ export default {
         this.게시물.push(result.data);
         this.더보기++;
       })
+    },
+    upload(e){
+      let file = e.target.files
+      console.log(file[0]);
+      let url = URL.createObjectURL(file[0])
+      console.log(url);
+      this.이미지 = url;
+      this.tabs++;
     }
   }
 }
