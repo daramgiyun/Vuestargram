@@ -49,7 +49,13 @@ export default {
       더보기 : 0,
       이미지 : '',
       작성한글 : '',
+      필터적용 : '',
     }
+  },
+  mounted(){
+    this.emitter.on('작명', (a)=>{
+      console.log(a);
+    })
   },
   components: {
     VuegramContainer,
